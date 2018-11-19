@@ -1,6 +1,6 @@
 Name:           font-tools
-Version:        1.0.3
-Release:        2%{?dist}
+Version:        1.1.0
+Release:        1%{?dist}
 Summary:        A simple set of font manipolation utilities
 License:        ASL 2.0
 Group:          Applications/File
@@ -43,6 +43,9 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_defaultdocdir}/font-tools/
 
 %changelog
+* Tue Nov 20 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.1.0-1
+ - Updated to upstream code.
+
 * Wed Nov 14 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.0.3-2
  - Moved project to github.
 
