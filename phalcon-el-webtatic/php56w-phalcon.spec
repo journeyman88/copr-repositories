@@ -7,7 +7,7 @@
 Name:           php56w-phalcon
 Summary:        High performance, full-stack PHP framework delivered as a C extension
 Version:        3.4.1
-Release:        1
+Release:        2
 License:        BSD
 Group:          Development/Libraries
 Url:            https://phalconphp.com/
