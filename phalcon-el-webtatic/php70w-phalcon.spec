@@ -7,13 +7,17 @@
 Name:           php70w-phalcon
 Summary:        High performance, full-stack PHP framework delivered as a C extension
 Version:        3.4.1
-Release:        2
+Release:        3
 License:        BSD
 Group:          Development/Libraries
 Url:            https://phalconphp.com/
 Source0:        https://github.com/phalcon/%{altName}/archive/v%{version}.tar.gz#/%{altName}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{altName}-%{version}
 Requires:       php70w-common
+Requires:       php70w-json
+Requires:       php70w-pdo
+#Recommends:     php70w-mbstring
+#Recommends:     php70w-mcrypt
 BuildRequires:  make
 BuildRequires:  gcc
 BuildRequires:  php70w-devel
@@ -87,6 +91,9 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_defaultdocdir}/phalcon/
 
 %changelog
+* Tue Nov 21 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.1-3
+ - Added extensions depencencies.
+
 * Tue Nov 20 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.1-2
  - Added php-zts build.
  - Fixed some rpmlint issues

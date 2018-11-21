@@ -7,13 +7,17 @@
 Name:           phalcon
 Summary:        High performance, full-stack PHP framework delivered as a C extension
 Version:        3.4.1
-Release:        3
+Release:        4
 License:        BSD
 Group:          Development/Libraries
 Url:            https://phalconphp.com/
 Source0:        https://github.com/phalcon/%{altName}/archive/v%{version}.tar.gz#/%{altName}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{altName}-%{version}
 Requires:       php-common
+Requires:       php-json
+Requires:       php-pdo
+Recommends:     php-mbstring
+Recommends:     php-mcrypt
 BuildRequires:  make
 BuildRequires:  gcc
 BuildRequires:  php-devel
@@ -88,6 +92,9 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_defaultdocdir}/phalcon/
 
 %changelog
+* Tue Nov 21 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.1-4
+ - Added extensions depencencies.
+
 * Tue Nov 20 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.1-3
  - Added php-zts build.
  - Fixed some rpmlint issues
