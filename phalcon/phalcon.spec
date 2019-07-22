@@ -6,7 +6,7 @@
 
 Name:           phalcon
 Summary:        High performance, full-stack PHP framework delivered as a C extension
-Version:        3.4.3
+Version:        3.4.4
 Release:        1
 License:        BSD
 Group:          Development/Libraries
@@ -92,6 +92,9 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_defaultdocdir}/phalcon/
 
 %changelog
+* Mon Jul 22 2019 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.4-1
+ - Updated package to upstream.
+
 * Tue Mar 19 2019 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.3-1
  - Updated package to upstream.
 
