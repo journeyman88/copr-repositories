@@ -10,6 +10,8 @@ Source0:        https://github.com/rnpgp/%{name}/archive/v%{version}.tar.gz#/%{n
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
 BuildRequires:  gcc
+BuildRequires:  gcc-c++
+BuildRequires:  libstdc++-devel
 BuildRequires:  glibc-devel
 BuildRequires:  json-c-devel
 BuildRequires:  bzip2-devel
