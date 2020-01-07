@@ -1,6 +1,6 @@
 Name:           rnp
 Version:        0.13.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High performance C++ OpenPGP library, fully compliant to RFC 4880
 License:        BSD
 Group:          Applications/Internet
@@ -67,7 +67,7 @@ mkdir -p %{buildroot}%{_defaultdocdir}/rnp
 install -m644 ../CHANGELOG.md %{buildroot}%{_defaultdocdir}/rnp/CHANGELOG.md
 install -m644 ../LICENSE.md %{buildroot}%{_defaultdocdir}/rnp/LICENSE.md
 install -m644 ../LICENSE-OCB.md %{buildroot}%{_defaultdocdir}/rnp/LICENSE-OCB.md
-install -m644 ../README.md %{buildroot}%{_defaultdocdir}/rnp/README.md
+install -m644 ../README.adoc %{buildroot}%{_defaultdocdir}/rnp/README.adoc
 install -m644 ../version.txt %{buildroot}%{_defaultdocdir}/rnp/version.txt
 
 %clean
@@ -78,7 +78,7 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/rnpkeys
 %attr(-, root, root) %{_libdir}/librnp-0.so
 %attr(-, root, root) %{_libdir}/librnp-0.so.0
-%attr(755, root, root) %{_libdir}/librnp-0.so.0.12.0
+%attr(755, root, root) %{_libdir}/librnp-0.so.0.13.0
 %attr(-, root, root) %{_defaultdocdir}/rnp/
 
 %files devel
@@ -87,6 +87,9 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/pkgconfig/librnp-0.pc
 
 %changelog
+* Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-2
+ - Fix in change of documentation format
+
 * Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-1
  - Upgrade to upstream 0.13.0
 
