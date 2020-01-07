@@ -6,7 +6,7 @@
 
 Name:           php56w-phalcon
 Summary:        High performance, full-stack PHP framework delivered as a C extension
-Version:        3.4.4
+Version:        3.4.5
 Release:        1
 License:        BSD
 Group:          Development/Libraries
@@ -91,6 +91,9 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_defaultdocdir}/phalcon/
 
 %changelog
+* Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.5-1
+ - Updated package to last 3.x.x version.
+
 * Mon Jul 22 2019 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 3.4.4-1
  - Updated package to upstream.
 
