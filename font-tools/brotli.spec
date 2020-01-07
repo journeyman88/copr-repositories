@@ -1,5 +1,5 @@
 Name:           brotli
-Version:        0.6.0
+Version:        1.0.7
 Release:        1%{?dist}
 Summary:        Lossless compression algorithm
 License:        MIT
@@ -31,8 +31,8 @@ This package installs the development files
 
 %prep
 %autosetup -n %{name}-%{version}
-%{__chmod} 644 enc/*.[ch]
-%{__chmod} 644 include/brotli/*.h
+#%{__chmod} 644 enc/*.[ch]
+#%{__chmod} 644 include/brotli/*.h
 
 %build
 mkdir -p build
@@ -47,15 +47,19 @@ cd build
 %make_install
 
 %files
-%{_bindir}/bro
+%{_bindir}/brotli
 %{_libdir}/*.so.*
 %license LICENSE
 
 %files -n %{name}-devel
 %{_includedir}/*
 %{_libdir}/*.so
+%{_libdir}/*.a
 %{_libdir}/pkgconfig/*
 
 %changelog
+* Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> - 1.0.7-1
+- Updated to upstream
+
 * Thu Nov 15 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> - 0.6.0-1
 - Initial build
