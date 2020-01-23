@@ -1,6 +1,6 @@
 Name:           hiawatha
 Version:        10.10
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -43,6 +43,8 @@ an integration system for Let's Encrypt.
 %setup -q
 
 %build
+mkdir bld
+cd bld
 CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS
 CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
@@ -53,41 +55,27 @@ FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
       -DENABLE_CACHE=on -DENABLE_TLS=on -DENABLE_RPROXY=on -DENABLE_XSLT=on \
       -DENABLE_IPV6=on -DENABLE_LOADCHECK=on -DENABLE_TOOLKIT=on \
       -DENABLE_ZLIB_SUPPORT=on -DUSE_PKCS11_HELPER_LIBRARY=on \
-      -DUSE_STATIC_MBEDTLS_LIBRARY=on -DUSE_SHARED_MBEDTLS_LIBRARY=off
+      -DUSE_STATIC_MBEDTLS_LIBRARY=on -DUSE_SHARED_MBEDTLS_LIBRARY=off ..
 %__make %{?_smp_mflags}
 
 %install
 rm -rf %{buildroot}
 mkdir -p  %{buildroot}
+cd bld
 %__make install DESTDIR=%{buildroot}
 mkdir -p %{buildroot}%{_unitdir}
 mkdir -p %{buildroot}%{_sysconfdir}/logrotate.d/
-install -m644 extra/debian/hiawatha.service %{buildroot}%{_unitdir}/hiawatha.service
 install -m644 logrotate.d/hiawatha %{buildroot}%{_sysconfdir}/logrotate.d/hiawatha
 sed -i "s/#ServerId/ServerId/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
 sed -i "s/www-data/hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
 sed -i "s/www-data www-data/hiawatha hiawatha/" %{buildroot}%{_sysconfdir}/logrotate.d/hiawatha
+cd ..
+install -m644 extra/debian/hiawatha.service %{buildroot}%{_unitdir}/hiawatha.service
 # Docs
 mkdir -p %{buildroot}%{_defaultdocdir}/hiawatha
 install -m644 ChangeLog %{buildroot}%{_defaultdocdir}/hiawatha/ChangeLog
 install -m644 LICENSE %{buildroot}%{_defaultdocdir}/hiawatha/LICENSE
 install -m644 README.md %{buildroot}%{_defaultdocdir}/hiawatha/README.md
-# Extra
-mkdir -p %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries
-install -m755 extra/letsencrypt/letsencrypt %{buildroot}%{_datadir}/hiawatha/letsencrypt/letsencrypt
-install -m755 extra/tls_make_ec %{buildroot}%{_datadir}/hiawatha/tls_make_ec
-install -m755 extra/tls_make_rsa %{buildroot}%{_datadir}/hiawatha/tls_make_rsa
-install -m644 extra/letsencrypt/letsencrypt.conf %{buildroot}%{_datadir}/hiawatha/letsencrypt/letsencrypt.conf
-install -m644 extra/letsencrypt/README.txt %{buildroot}%{_datadir}/hiawatha/letsencrypt/README.txt
-install -m644 extra/letsencrypt/libraries/acmev2.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/acme.php
-install -m644 extra/letsencrypt/libraries/config.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/config.php
-install -m644 extra/letsencrypt/libraries/hiawatha_config.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/hiawatha_config.php
-install -m644 extra/letsencrypt/libraries/http.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/http.php
-install -m644 extra/letsencrypt/libraries/https.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/https.php
-install -m644 extra/letsencrypt/libraries/logfile.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/logfile.php
-install -m644 extra/letsencrypt/libraries/letsencrypt.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/letsencrypt.php
-install -m644 extra/letsencrypt/libraries/openssl.conf %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/openssl.conf
-install -m644 extra/letsencrypt/libraries/rsa.php %{buildroot}%{_datadir}/hiawatha/letsencrypt/libraries/rsa.php
 
 %pre
 getent group hiawatha >/dev/null || groupadd -r hiawatha
@@ -133,15 +121,20 @@ rm -rf %{buildroot}
 %exclude %{_libdir}/hiawatha
 
 %files extra
-%attr(-, root, root) %{_datadir}/hiawatha/
+%attr(755, root, root) %{_sbindir}/lefh
+%attr(-, root, root) %{_libdir}/hiawatha/letsencrypt
+%attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Thu Jan 23 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.10-2
+ - Fix SPEC for change on upstream
+
 * Thu Jan 23 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.10-1
  - Upgraded to upstream 10.10
 
 * Mon Jul 30 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.8.2-1
  - Upgraded to upstream 10.8.2
- 
+
 * Thu Apr 12 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.8.1-1
  - Upgraded to upstream 10.8.1
 
