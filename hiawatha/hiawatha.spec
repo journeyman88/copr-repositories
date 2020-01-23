@@ -1,5 +1,5 @@
 Name:           hiawatha
-Version:        10.8.2
+Version:        10.10
 Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
@@ -136,6 +136,9 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_datadir}/hiawatha/
 
 %changelog
+* Thu Jan 23 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.10-1
+ - Upgraded to upstream 10.10
+
 * Mon Jul 30 2018 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.8.2-1
  - Upgraded to upstream 10.8.2
  
