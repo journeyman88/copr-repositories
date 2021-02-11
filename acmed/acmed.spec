@@ -16,6 +16,7 @@ BuildRequires:  make
 BuildRequires:  openssl-devel
 BuildRequires:  rust
 BuildRequires:  cargo
+BuildRequires:  systemd-units
 
 %description
 The Automatic Certificate Management Environment (ACME), is an 
