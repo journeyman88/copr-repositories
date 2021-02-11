@@ -1,5 +1,5 @@
 Name:           rnp
-Version:        0.13.0
+Version:        0.14.0
 Release:        2%{?dist}
 Summary:        High performance C++ OpenPGP library, fully compliant to RFC 4880
 License:        BSD
@@ -87,6 +87,9 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/pkgconfig/librnp-0.pc
 
 %changelog
+* Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.14.0-1
+ - Upgrade to upstream 0.14.0
+
 * Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-2
  - Fix in change of documentation format
 

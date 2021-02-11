@@ -1,6 +1,6 @@
 Name:           hiawatha
-Version:        10.10
-Release:        2%{?dist}
+Version:        10.11
+Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -126,6 +126,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.11-1
+ - Upgraded to upstream 10.11
+
 * Thu Jan 23 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.10-2
  - Fix SPEC for change on upstream
 
