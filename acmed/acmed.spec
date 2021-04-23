@@ -8,7 +8,6 @@ Summary:        A client for the ACME protocol.
 Version:        0.16.0
 Release:        1%{?dist}
 License:        MIT
-Group:          Development/Libraries
 Url:            https://github.com/breard-r/acmed
 Source0:        https://github.com/breard-r/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}
@@ -71,5 +70,8 @@ getent passwd acmed >/dev/null || \
 
 
 %changelog
-* Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.16.0-1
+* Fri Apr 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.16.0-2
+ - Removed group tag.
+
+* Thu Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.16.0-1
  - Initial build.

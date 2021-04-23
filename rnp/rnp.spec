@@ -1,5 +1,5 @@
 Name:           rnp
-Version:        0.14.0
+Version:        0.15.0
 Release:        2%{?dist}
 Summary:        High performance C++ OpenPGP library, fully compliant to RFC 4880
 License:        BSD
@@ -17,15 +17,8 @@ BuildRequires:  json-c-devel
 BuildRequires:  bzip2-devel
 BuildRequires:  zlib-devel
 BuildRequires:  botan2-devel
-
-%if 0%{?rhel}
-BuildRequires:	cmake3
-%define bldcmd	cmake3
-%endif
-%if 0%{?fedora}
+BuildRequires:  rubygem-asciidoctor
 BuildRequires:	cmake
-%define bldcmd	cmake
-%endif
 
 %description
 RNP is a set of OpenPGP (RFC4880) tools that works on Linux, *BSD and macOS as a
@@ -50,7 +43,7 @@ cd build
 CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS
 CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
-%bldcmd .. -DCMAKE_INSTALL_PREFIX="" -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
+cmake .. -DCMAKE_INSTALL_PREFIX="" -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
       -DCMAKE_INSTALL_BINDIR=%{_bindir} -DCMAKE_INSTALL_SBINDIR=%{_sbindir} \
       -DCMAKE_INSTALL_SYSCONFDIR=%{_sysconfdir} -DCMAKE_INSTALL_MANDIR=%{_mandir} \
       -DCMAKE_INSTALL_INCLUDEDIR=/usr/include \
@@ -76,18 +69,24 @@ rm -rf %{buildroot}
 %files
 %attr(755, root, root) %{_bindir}/rnp
 %attr(755, root, root) %{_bindir}/rnpkeys
-%attr(-, root, root) %{_libdir}/librnp-0.so
-%attr(-, root, root) %{_libdir}/librnp-0.so.0
-%attr(755, root, root) %{_libdir}/librnp-0.so.0.13.0
+%attr(-, root, root) %{_libdir}/librnp.so
+%attr(-, root, root) %{_libdir}/librnp.so.0
+%attr(755, root, root) %{_libdir}/librnp.so.0.15.0
 %attr(-, root, root) %{_defaultdocdir}/rnp/
+%attr(-, root, root) %{_mandir}/man1/rnp.1.gz
+%attr(-, root, root) %{_mandir}/man1/rnpkeys.1.gz
+%attr(-, root, root) %{_mandir}/man3/librnp.3.gz
 
 %files devel
-%attr(-, root, root) %{_includedir}/rnp-0/
+%attr(-, root, root) %{_includedir}/rnp/
 %attr(-, root, root) %{_libdir}/cmake/rnp/
-%attr(-, root, root) %{_libdir}/pkgconfig/librnp-0.pc
+%attr(-, root, root) %{_libdir}/pkgconfig/librnp.pc
 
 %changelog
-* Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.14.0-1
+* Fri Apr 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.0-1
+ - Upgrade to upstream 0.15.0
+
+* Thu Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.14.0-1
  - Upgrade to upstream 0.14.0
 
 * Tue Jan 07 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-2
