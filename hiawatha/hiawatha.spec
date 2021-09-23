@@ -1,5 +1,5 @@
 Name:           hiawatha
-Version:        10.11
+Version:        11.0
 Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
@@ -71,6 +71,9 @@ sed -i "s/www-data/hiawatha/" %{buildroot}%{_sysconfdir}/hiawatha/hiawatha.conf
 sed -i "s/www-data www-data/hiawatha hiawatha/" %{buildroot}%{_sysconfdir}/logrotate.d/hiawatha
 cd ..
 install -m644 extra/debian/hiawatha.service %{buildroot}%{_unitdir}/hiawatha.service
+rm -rf %{buildroot}/cmake
+rm -rf %{buildroot}/include
+
 # Docs
 mkdir -p %{buildroot}%{_defaultdocdir}/hiawatha
 install -m644 ChangeLog %{buildroot}%{_defaultdocdir}/hiawatha/ChangeLog
@@ -126,6 +129,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.0-1
+ - Upgraded to upstream 11.0
+
 * Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.11-1
  - Upgraded to upstream 10.11
 
