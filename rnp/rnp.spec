@@ -1,6 +1,6 @@
 Name:           rnp
 Version:        0.15.2
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High performance C++ OpenPGP library, fully compliant to RFC 4880
 License:        BSD
 Group:          Applications/Internet
@@ -8,6 +8,7 @@ URL:            https://www.rnpgp.com/
 Source0:        https://github.com/rnpgp/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
+BuildRequires:  git
 BuildRequires:  make
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -83,6 +84,12 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/pkgconfig/librnp.pc
 
 %changelog
+* Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-3
+ - Fix git builddeps
+
+* Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-2
+ - Fix asciidoctor deps
+
 * Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-1
  - Upgrade to upstream 0.15.2
 
