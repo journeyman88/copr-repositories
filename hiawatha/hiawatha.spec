@@ -1,6 +1,6 @@
 Name:           hiawatha
 Version:        11.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -15,7 +15,6 @@ BuildRequires:  glibc-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
 BuildRequires:  systemd-units
-BuildRequires:  pkcs11-helper-devel
 
 %if 0%{?rhel}
 BuildRequires:	cmake3
@@ -53,8 +52,7 @@ FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
       -DCMAKE_INSTALL_SYSCONFDIR=%{_sysconfdir} -DCMAKE_INSTALL_MANDIR=%{_mandir} \
       -DENABLE_TOMAHAWK=on -DENABLE_MONITOR=on -DUSE_SYSTEM_MBEDTLS=off \
       -DENABLE_CACHE=on -DENABLE_TLS=on -DENABLE_RPROXY=on -DENABLE_XSLT=on \
-      -DENABLE_IPV6=on -DENABLE_LOADCHECK=on -DENABLE_TOOLKIT=on \
-      -DENABLE_ZLIB_SUPPORT=on -DUSE_PKCS11_HELPER_LIBRARY=on \
+      -DENABLE_LOADCHECK=on -DENABLE_TOOLKIT=on -DCMAKE_C_STANDARD=99 \
       -DUSE_STATIC_MBEDTLS_LIBRARY=on -DUSE_SHARED_MBEDTLS_LIBRARY=off ..
 %__make %{?_smp_mflags}
 
@@ -129,10 +127,13 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.0-2
+ - Fixed spec for EPEL7 and CentOS-Stream build
+
 * Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.0-1
  - Upgraded to upstream 11.0
 
-* Fri Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.11-1
+* Thu Feb 11 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.11-1
  - Upgraded to upstream 10.11
 
 * Thu Jan 23 2020 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 10.10-2
