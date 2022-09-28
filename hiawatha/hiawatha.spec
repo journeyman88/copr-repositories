@@ -1,6 +1,6 @@
 Name:           hiawatha
-Version:        11.0
-Release:        2%{?dist}
+Version:        11.2
+Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -127,6 +127,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Wed Sep 28 2022 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.2-1
+ - Upgraded to upstream 11.2
+ 
 * Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.0-2
  - Fixed spec for EPEL7 and CentOS-Stream build
 
