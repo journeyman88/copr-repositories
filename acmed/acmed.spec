@@ -5,7 +5,7 @@
 
 Name:           acmed
 Summary:        A client for the ACME protocol.
-Version:        0.18.0
+Version:        0.20.0
 Release:        1%{?dist}
 License:        MIT
 Url:            https://github.com/breard-r/acmed
@@ -68,6 +68,9 @@ getent passwd acmed >/dev/null || \
 %attr(-, root, root) %{_defaultdocdir}/acmed
 
 %changelog
+* Wed Sep 28 2022 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.20.0-1
+ - Upgraded to current upstream.
+
 * Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.18.0-1
  - Upgraded to current upstream.
 
