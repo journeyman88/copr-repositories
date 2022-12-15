@@ -47,6 +47,7 @@ automake --add-missing
 rm -rf %{buildroot}
 mkdir -p  %{buildroot}
 %__make install DESTDIR=%{buildroot}
+rm -rf %{_libdir}/libunix_dbus_java.la
 
 %clean
 rm -rf %{buildroot}
