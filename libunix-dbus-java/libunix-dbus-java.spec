@@ -15,6 +15,7 @@ BuildRequires:  gcc-c++
 BuildRequires:  libstdc++-devel
 BuildRequires:  glibc-devel
 BuildRequires:  zlib-devel
+BuildRequires:  libtool
 BuildRequires:  autoconf
 BuildRequires:  automake
 BuildRequires:  java-17-openjdk-devel
