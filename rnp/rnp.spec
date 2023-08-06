@@ -36,7 +36,7 @@ LibRNP is the library used by rnp for all OpenPGP functions, useful for
 developers to build against.
 
 %prep
-%autosetup -n %{name}-v%{version}
+%autosetup -n %{name}-%{version}
 
 %build
 mkdir build
