@@ -8,6 +8,7 @@ URL:            https://www.rnpgp.com/
 Source0:        https://github.com/rnpgp/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
+BuildRequires:  git
 BuildRequires:  make
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -71,7 +72,7 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/rnpkeys
 %attr(-, root, root) %{_libdir}/librnp.so
 %attr(-, root, root) %{_libdir}/librnp.so.0
-%attr(755, root, root) %{_libdir}/librnp.so.0.17.0
+%attr(755, root, root) %{_libdir}/librnp.so.%{version}
 %attr(-, root, root) %{_defaultdocdir}/rnp/
 %attr(-, root, root) %{_mandir}/man1/rnp.1.gz
 %attr(-, root, root) %{_mandir}/man1/rnpkeys.1.gz
@@ -87,6 +88,18 @@ rm -rf %{buildroot}
 %changelog
 * Sun Aug 06 2023 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.17.0-1
  - Upgrade to upstream 0.17.0
+ 
+* Wed Sep 28 2022 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.16.2-1
+ - Upgrade to upstream 0.16.2
+
+* Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-3
+ - Fix git builddeps
+
+* Tue Dec 07 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-2
+ - Fix asciidoctor deps
+
+* Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.2-1
+ - Upgrade to upstream 0.15.2
 
 * Fri Apr 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.0-1
  - Upgrade to upstream 0.15.0

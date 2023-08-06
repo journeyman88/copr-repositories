@@ -1,11 +1,11 @@
 #
 # spec file for package acmed
 
-#%global debug_package %{nil}
+%global debug_package %{nil}
 
 Name:           acmed
 Summary:        A client for the ACME protocol.
-Version:        0.16.0
+Version:        0.20.0
 Release:        1%{?dist}
 License:        MIT
 Url:            https://github.com/breard-r/acmed
@@ -33,10 +33,8 @@ make
 %install
 make DESTDIR=%{buildroot} install
 mkdir -p %{buildroot}%{_unitdir}
-install -m644 contrib/acmed.service.example %{buildroot}%{_unitdir}/acmed.service
-sed -i "s:/usr/local/bin/acmed:%{_bindir}/acmed:" %{buildroot}%{_unitdir}/acmed.service
-sed -i "s:/etc/acmed/acmed.pid:%{_localstatedir}/run/acmed.pid:" %{buildroot}%{_unitdir}/acmed.service
-sed -i "s:/etc/acmed:%{_sysconfdir}/acmed:" %{buildroot}%{_unitdir}/acmed.service
+install -m644 contrib/systemd/acmed.service %{buildroot}%{_unitdir}/acmed.service
+
 # Docs
 mkdir -p %{buildroot}%{_defaultdocdir}/acmed
 install -m644 CHANGELOG.md %{buildroot}%{_defaultdocdir}/acmed/CHANGELOG.md
@@ -61,15 +59,21 @@ getent passwd acmed >/dev/null || \
 %attr(644, root, root) %{_mandir}/man5/acmed.toml.5.gz
 %attr(644, root, root) %{_mandir}/man8/acmed.8.gz
 %attr(644, root, root) %{_mandir}/man8/tacd.8.gz
-%attr(644, root, root) %{_sysconfdir}/acmed/certs
-%attr(644, root, root) %{_sysconfdir}/acmed/accounts
 %attr(644, root, root) %{_sysconfdir}/acmed/acmed.toml
+%attr(644, root, root) %{_sysconfdir}/acmed/letsencrypt.toml
 %attr(644, root, root) %{_sysconfdir}/acmed/default_hooks.toml
 %attr(755, root, root) %{_unitdir}/acmed.service
-%attr(-, root, root) %{_defaultdocdir}/acmed/
-
+%attr(-, root, root) %{_localstatedir}/lib/acmed/certs
+%attr(-, root, root) %{_localstatedir}/lib/acmed/accounts
+%attr(-, root, root) %{_defaultdocdir}/acmed
 
 %changelog
+* Wed Sep 28 2022 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.20.0-1
+ - Upgraded to current upstream.
+
+* Thu Sep 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.18.0-1
+ - Upgraded to current upstream.
+
 * Fri Apr 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.16.0-2
  - Removed group tag.
 
