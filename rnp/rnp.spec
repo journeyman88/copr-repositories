@@ -1,6 +1,6 @@
 Name:           rnp
-Version:        0.15.0
-Release:        2%{?dist}
+Version:        0.17.0
+Release:        1%{?dist}
 Summary:        High performance C++ OpenPGP library, fully compliant to RFC 4880
 License:        BSD
 Group:          Applications/Internet
@@ -35,7 +35,7 @@ LibRNP is the library used by rnp for all OpenPGP functions, useful for
 developers to build against.
 
 %prep
-%setup -q
+%autosetup -n %{name}-v%{version}
 
 %build
 mkdir build
@@ -71,18 +71,23 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_bindir}/rnpkeys
 %attr(-, root, root) %{_libdir}/librnp.so
 %attr(-, root, root) %{_libdir}/librnp.so.0
-%attr(755, root, root) %{_libdir}/librnp.so.0.15.0
+%attr(755, root, root) %{_libdir}/librnp.so.0.17.0
 %attr(-, root, root) %{_defaultdocdir}/rnp/
 %attr(-, root, root) %{_mandir}/man1/rnp.1.gz
 %attr(-, root, root) %{_mandir}/man1/rnpkeys.1.gz
 %attr(-, root, root) %{_mandir}/man3/librnp.3.gz
 
 %files devel
+%attr(-, root, root) %{_libdir}/librnp.a
+%attr(-, root, root) %{_libdir}/libsexp.a
 %attr(-, root, root) %{_includedir}/rnp/
 %attr(-, root, root) %{_libdir}/cmake/rnp/
 %attr(-, root, root) %{_libdir}/pkgconfig/librnp.pc
 
 %changelog
+* Sun Aug 06 2023 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.17.0-1
+ - Upgrade to upstream 0.17.0
+
 * Fri Apr 23 2021 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.15.0-1
  - Upgrade to upstream 0.15.0
 
