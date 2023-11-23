@@ -5,7 +5,7 @@ Summary:        High performance C++ OpenPGP library, fully compliant to RFC 488
 License:        BSD
 Group:          Applications/Internet
 URL:            https://www.rnpgp.com/
-Source0:        https://github.com/rnpgp/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Source0:        https://github.com/rnpgp/%{name}/archive/v%{version}.tar.gz#/%{name}-v%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  git
@@ -36,7 +36,7 @@ LibRNP is the library used by rnp for all OpenPGP functions, useful for
 developers to build against.
 
 %prep
-%autosetup -n %{name}-%{version}
+%autosetup -n %{name}-v%{version}
 
 %build
 mkdir build
