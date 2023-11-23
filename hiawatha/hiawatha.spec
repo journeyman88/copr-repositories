@@ -1,5 +1,5 @@
 Name:           hiawatha
-Version:        11.4
+Version:        11.5
 Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
@@ -127,6 +127,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Thu Nov 23 2023 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.5-1
+ - Upgraded to upstream 11.5
+
 * Sun Aug 06 2023 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.4-1
  - Upgraded to upstream 11.4
  
