@@ -4,9 +4,8 @@ Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
-URL:            https://www.hiawatha-webserver.org/
-Source0:        https://www.hiawatha-webserver.org/files/%{name}-%{version}.tar.gz
-#Source1:        https://unknown-domain.no-ip.net/pkg/hiawatha/hiawatha.service.tar.gz
+URL:            https://hiawatha.leisink.net/
+Source0:        https://hiawatha.leisink.net/files/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
