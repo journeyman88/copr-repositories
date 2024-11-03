@@ -1,6 +1,6 @@
 Name:           janus-gateway
 Version:        1.2.4
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -35,6 +35,13 @@ BuildRequires:  opus-devel
 BuildRequires:  libogg-devel
 BuildRequires:  lua-devel
 BuildRequires:  duktape-devel
+
+%if 0%{?rhel}
+%define has_la	1
+%endif
+%if 0%{?fedora}
+%define has_la	0
+%endif
 
 %description
 Janus is an open source, general purpose, WebRTC server designed and 
@@ -299,7 +306,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -312,7 +318,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -325,7 +330,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -338,7 +342,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -351,7 +354,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -364,7 +367,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -377,7 +379,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -390,7 +391,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -403,7 +403,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -416,7 +415,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -429,7 +427,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -442,7 +439,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -455,7 +451,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -468,7 +463,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -481,7 +475,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -494,7 +487,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -507,7 +499,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -520,7 +511,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -533,7 +523,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -546,7 +535,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -559,7 +547,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -572,7 +559,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -585,7 +571,6 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -598,13 +583,12 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
-%define has_la %( if [ -f %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
 %if %has_la
 %attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %changelog
-* Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-3
+* Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-4
  - Updated spec to handle epel
 
 * Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-1
