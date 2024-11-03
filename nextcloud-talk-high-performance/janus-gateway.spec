@@ -1,6 +1,6 @@
 Name:           janus-gateway
 Version:        1.2.4
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -292,149 +292,320 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_includedir}/janus/
 
 %files transport-http
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.http.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_http.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_http.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_http.so.2.0.4
+%define modname http
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files transport-websockets
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.websockets.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_websockets.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_websockets.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_websockets.so.2.0.4
+%define modname websockets
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files transport-rabbitmq
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.rabbitmq.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_rabbitmq.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_rabbitmq.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_rabbitmq.so.2.0.4
+%define modname rabbitmq
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files transport-mqtt
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.mqtt.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_mqtt.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_mqtt.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_mqtt.so.2.0.4
+%define modname mqtt
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files transport-pfunix
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.pfunix.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_pfunix.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_pfunix.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_pfunix.so.2.0.4
+%define modname pfunix
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files transport-nanomsg
-%config(noreplace) %{_sysconfdir}/janus/janus.transport.nanomsg.jcfg
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_nanomsg.so
-%attr(-, root, root) %{_libdir}/janus/transports/libjanus_nanomsg.so.2
-%attr(755, root, root) %{_libdir}/janus/transports/libjanus_nanomsg.so.2.0.4
+%define modname nanomsg
+%define modtype transport
+%define modfolder transports
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-sample
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.sampleevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_sampleevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_sampleevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_sampleevh.so.2.0.4
+%define modname sampleevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-websockets
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.wsevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_wsevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_wsevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_wsevh.so.2.0.4
+%define modname wsevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-rabbitmq
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.rabbitmqevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_rabbitmqevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_rabbitmqevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_rabbitmqevh.so.2.0.4
+%define modname rabbitmqevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-mqtt
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.mqttevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_mqttevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_mqttevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_mqttevh.so.2.0.4
+%define modname mqttevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-nanomsg
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.nanomsgevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_nanomsgevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_nanomsgevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_nanomsgevh.so.2.0.4
+%define modname nanomsgevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files eventhandler-gelf
-%config(noreplace) %{_sysconfdir}/janus/janus.eventhandler.gelfevh.jcfg
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_gelfevh.so
-%attr(-, root, root) %{_libdir}/janus/events/libjanus_gelfevh.so.2
-%attr(755, root, root) %{_libdir}/janus/events/libjanus_gelfevh.so.2.0.4
+%define modname gelfevh
+%define modtype eventhandler
+%define modfolder events
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-echotest
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.echotest.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_echotest.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_echotest.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_echotest.so.2.0.4
+%define modname echotest
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-streaming
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.streaming.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_streaming.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_streaming.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_streaming.so.2.0.4
+%define modname streaming
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-videocall
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.videocall.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_videocall.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_videocall.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_videocall.so.2.0.4
+%define modname videocall
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-sip
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.sip.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_sip.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_sip.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_sip.so.2.0.4
+%define modname sip
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-nosip
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.nosip.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_nosip.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_nosip.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_nosip.so.2.0.4
+%define modname nosip
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-audiobridge
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.audiobridge.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_audiobridge.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_audiobridge.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_audiobridge.so.2.0.4
+%define modname audiobridge
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-videoroom
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.videoroom.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_videoroom.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_videoroom.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_videoroom.so.2.0.4
+%define modname videoroom
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-recordplay
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.recordplay.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_recordplay.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_recordplay.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_recordplay.so.2.0.4
+%define modname recordplay
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-textroom
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.textroom.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_textroom.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_textroom.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_textroom.so.2.0.4
+%define modname textroom
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-lua
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.lua.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_lua.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_lua.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_lua.so.2.0.4
+%define modname lua
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files plugin-duktape
-%config(noreplace) %{_sysconfdir}/janus/janus.plugin.duktape.jcfg
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_duktape.so
-%attr(-, root, root) %{_libdir}/janus/plugins/libjanus_duktape.so.2
-%attr(755, root, root) %{_libdir}/janus/plugins/libjanus_duktape.so.2.0.4
+%define modname duktape
+%define modtype plugin
+%define modfolder plugins
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %files logger-json
-%config(noreplace) %{_sysconfdir}/janus/janus.logger.jsonlog.jcfg
-%attr(-, root, root) %{_libdir}/janus/loggers/libjanus_jsonlog.so
-%attr(-, root, root) %{_libdir}/janus/loggers/libjanus_jsonlog.so.2
-%attr(755, root, root) %{_libdir}/janus/loggers/libjanus_jsonlog.so.2.0.4
+%define modname jsonlog
+%define modtype logger
+%define modfolder loggers
+%config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%define has_la %( if [ -f %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la ]; then echo "1" ; else echo "0"; fi )
+%if %has_la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%endif
 
 %changelog
+* Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-2
+ - Updated spec to handle epel
+
 * Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-1
  - First iteration
