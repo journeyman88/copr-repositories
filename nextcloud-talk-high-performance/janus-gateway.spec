@@ -1,6 +1,6 @@
 Name:           janus-gateway
 Version:        1.2.4
-Release:        4%{?dist}
+Release:        5%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -307,7 +307,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files transport-websockets
@@ -319,7 +319,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files transport-rabbitmq
@@ -331,7 +331,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files transport-mqtt
@@ -343,7 +343,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files transport-pfunix
@@ -356,7 +356,7 @@ rm -rf %{buildroot}
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files transport-nanomsg
@@ -368,7 +368,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-sample
@@ -380,7 +380,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-websockets
@@ -392,7 +392,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-rabbitmq
@@ -404,7 +404,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-mqtt
@@ -416,7 +416,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-nanomsg
@@ -428,7 +428,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files eventhandler-gelf
@@ -440,7 +440,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-echotest
@@ -452,7 +452,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-streaming
@@ -464,7 +464,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-videocall
@@ -476,7 +476,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-sip
@@ -488,7 +488,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-nosip
@@ -500,7 +500,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-audiobridge
@@ -512,7 +512,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-videoroom
@@ -524,7 +524,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-recordplay
@@ -536,7 +536,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-textroom
@@ -548,7 +548,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-lua
@@ -560,7 +560,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files plugin-duktape
@@ -572,7 +572,7 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %files logger-json
@@ -584,11 +584,11 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
 %if %has_la
-%attr(755, root, root) %{buildroot}/%{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %changelog
-* Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-4
+* Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-5
  - Updated spec to handle epel
 
 * Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-1
