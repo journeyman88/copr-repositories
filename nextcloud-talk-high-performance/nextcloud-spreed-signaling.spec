@@ -1,6 +1,6 @@
 Name:           nextcloud-spreed-signaling
 Version:        2.0.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The standalone signaling server which can be used for Nextcloud Talk.
 License:        AGPLv3
 Group:          Applications/Internet
@@ -8,15 +8,9 @@ URL:            https://apps.nextcloud.com/apps/spreed
 Source0:        https://github.com/strukturag/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
-BuildRequires:  pkgconfig
-BuildRequires:  libconfig-devel
-BuildRequires:  libtool
-BuildRequires:  autoconf
-BuildRequires:  automake
-BuildRequires:  gcc
+BuildRequires:  systemd
 BuildRequires:  glibc-devel
-BuildRequires:  glib2-devel
-BuildRequires:  openssl-devel
+BuildRequires:  git
 BuildRequires:  golang
 
 %description
@@ -93,5 +87,8 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
 
 %changelog
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
+ - Changed BuildRequires
+
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
  - First iteration
