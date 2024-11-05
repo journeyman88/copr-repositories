@@ -89,5 +89,5 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
 
 %changelog
-* Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-1
+* Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
  - First iteration
