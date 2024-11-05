@@ -1,6 +1,6 @@
 Name:           nats-server
 Version:        2.10.22
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
 Group:          Applications/Internet
@@ -8,6 +8,7 @@ URL:            https://nats.io/
 Source0:        https://github.com/nats-io/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
+BuildRequires:  systemd
 BuildRequires:  glibc-devel
 BuildRequires:  git
 BuildRequires:  golang
@@ -71,6 +72,9 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-2
+ - Fixed systemd deps
+
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-2
  - Corrected package informations
 
