@@ -1,6 +1,6 @@
 Name:           nats-server
 Version:        2.10.22
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
 Group:          Applications/Internet
@@ -55,6 +55,9 @@ echo "" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "# Capacity Limits" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "# JetStream requires 2 FDs open per stream." >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "LimitNOFILE=800000" >> %{buildroot}/%{_unitdir}/nats-server.service
+echo "" >> %{buildroot}/%{_unitdir}/nats-server.service
+echo "[Install]" >> %{buildroot}/%{_unitdir}/nats-server.service
+echo "WantedBy=multi-user.target" >> %{buildroot}/%{_unitdir}/nats-server.service
 
 %pre
 getent group nats >/dev/null || groupadd -r nats
@@ -72,7 +75,10 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
-* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-2
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-4
+ - Fixed systemd service
+
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-3
  - Fixed systemd deps
 
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-2
