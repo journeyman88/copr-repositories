@@ -4,7 +4,7 @@ Release:        1%{?dist}
 Summary:        The standalone signaling server which can be used for Nextcloud Talk.
 License:        AGPLv3
 Group:          Applications/Internet
-URL:            https://janus.conf.meetecho.com/
+URL:            https://apps.nextcloud.com/apps/spreed
 Source0:        https://github.com/strukturag/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
@@ -22,10 +22,14 @@ BuildRequires:  golang
 %description
 The standalone signaling server which can be used for Nextcloud Talk.
 
+%global debug_package %{nil}
+
 %prep
 %autosetup -n %{name}-%{version}
 
 %build
+mv Makefile Makefile.in
+sed s/"INTERNALLDFLAGS := "/"INTERNALLDFLAGS := -linkmode=external "/g < Makefile.in > Makefile
 %__make %{?_smp_mflags}
 
 %install
@@ -89,5 +93,5 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
 
 %changelog
-* Sat Nov 2 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
  - First iteration
