@@ -1,18 +1,20 @@
 Name:           nats-server
 Version:        2.10.22
-Release:        1%{?dist}
-Summary:        The standalone signaling server which can be used for Nextcloud Talk.
-License:        AGPLv3
+Release:        2%{?dist}
+Summary:        High-Performance server for NATS.io.
+License:        Apache-2.0
 Group:          Applications/Internet
-URL:            https://janus.conf.meetecho.com/
+URL:            https://nats.io/
 Source0:        https://github.com/nats-io/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  glibc-devel
+BuildRequires:  git
 BuildRequires:  golang
 
 %description
-The standalone signaling server which can be used for Nextcloud Talk.
+High-Performance server for NATS.io, the cloud and edge native messaging system.
+NATS is a connective technology that powers modern distributed systems. A connective technology is responsible for addressing, discovery and exchanging of messages that drive the common patterns in distributed systems; asking and answering questions, aka services/microservices, and making and processing statements, or stream processing.NATS is a connective technology that powers modern distributed systems. A connective technology is responsible for addressing, discovery and exchanging of messages that drive the common patterns in distributed systems; asking and answering questions, aka services/microservices, and making and processing statements, or stream processing.
 
 %global debug_package %{nil}
 
@@ -69,5 +71,8 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-2
+ - Corrected package informations
+
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-1
  - First iteration
