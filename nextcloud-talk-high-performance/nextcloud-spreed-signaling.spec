@@ -1,6 +1,6 @@
 Name:           nextcloud-spreed-signaling
 Version:        2.0.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        The standalone signaling server which can be used for Nextcloud Talk.
 License:        AGPLv3
 Group:          Applications/Internet
@@ -43,7 +43,7 @@ install -m 644 server.conf.in %{buildroot}/%{_sysconfdir}/signaling/server.conf
 install -m 644 proxy.conf.in %{buildroot}/%{_sysconfdir}/signaling/proxy.conf
 mkdir -p %{buildroot}/%{_unitdir}
 echo "[Unit]" >>  %{buildroot}/%{_unitdir}/signaling.service
-echo "Nextcloud Talk signaling server" >>  %{buildroot}/%{_unitdir}/signaling.service
+echo "Description=Nextcloud Talk signaling server" >>  %{buildroot}/%{_unitdir}/signaling.service
 echo "After=network.target" >>  %{buildroot}/%{_unitdir}/signaling.service
 echo "" >>  %{buildroot}/%{_unitdir}/signaling.service
 echo "[Service]" >>  %{buildroot}/%{_unitdir}/signaling.service
@@ -56,7 +56,7 @@ echo "[Install]" >>  %{buildroot}/%{_unitdir}/signaling.service
 echo "WantedBy=multi-user.target" >>  %{buildroot}/%{_unitdir}/signaling.service
 
 echo "[Unit]" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
-echo "Nextcloud Talk signaling proxy" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
+echo "Description=Nextcloud Talk signaling proxy" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "After=network.target" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "[Service]" >>  %{buildroot}/%{_unitdir}/signaling.service
@@ -87,7 +87,10 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
 
 %changelog
-* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
+* Wed Nov 6 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-3
+ - Fixed systemd description
+
+* Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-2
  - Changed BuildRequires
 
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.1-1
