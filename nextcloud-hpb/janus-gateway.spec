@@ -1,6 +1,6 @@
 Name:           janus-gateway
 Version:        1.2.4
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -264,19 +264,19 @@ for i in *.jcfg.sample; do {
 };
 done
 mkdir -p %{buildroot}/%{_unitdir}
-echo "[Unit]" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "Description=Janus WebRTC gateway" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "After=network.target" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "Documentation=https://janus.conf.meetecho.com/docs/index.html" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "[Service]" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "Type=forking" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "ExecStart=/usr/bin/janus --disable-colors --daemon --log-stdout" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "Restart=on-failure" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "LimitNOFILE=65536" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "[Install]" >>  %{buildroot}/%{_unitdir}/janus.service
-echo "WantedBy=multi-user.target" >>  %{buildroot}/%{_unitdir}/janus.service
+echo "[Unit]" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "Description=Janus WebRTC gateway" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "After=network.target" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "Documentation=https://janus.conf.meetecho.com/docs/index.html" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "[Service]" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "Type=forking" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "ExecStart=/usr/bin/janus --disable-colors --daemon --log-stdout" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "Restart=on-failure" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "LimitNOFILE=65536" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "[Install]" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
+echo "WantedBy=multi-user.target" >>  %{buildroot}/%{_unitdir}/janus-gateway.service
 
 %clean
 rm -rf %{buildroot}
@@ -292,7 +292,7 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/janus-cfgconv.1.gz
 %attr(-, root, root) %{_defaultdocdir}/janus-gateway/
 %attr(-, root, root) %{_datarootdir}/janus/
-%attr(644, root, root) %{_unitdir}/janus.service
+%attr(644, root, root) %{_unitdir}/janus-gateway.service
 %config(noreplace) %{_sysconfdir}/janus/janus.jcfg
 
 %files devel
@@ -588,6 +588,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Thu Nov 7 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-6
+ - Fixed service
+
 * Sun Nov 3 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-5
  - Updated spec to handle epel
 
