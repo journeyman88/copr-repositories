@@ -34,7 +34,6 @@ install -m 644 DEVELOPING.md %{buildroot}/%{_defaultdocdir}/nextcloud-notify-pus
 install -m 644 AUTHORS.md %{buildroot}/%{_defaultdocdir}/nextcloud-notify-push/AUTHORS.md
 mkdir -p %{buildroot}/%{_sysconfdir}/default
 echo "PORT=7867" >> %{buildroot}/%{_sysconfdir}/default/notify-push
-echo "SERVER_USER=www-data" >> %{buildroot}/%{_sysconfdir}/default/notify-push
 echo "NEXTCLOUD_DIR=/var/www/netcloud" >> %{buildroot}/%{_sysconfdir}/default/notify-push
 mkdir -p %{buildroot}/%{_unitdir}
 echo "[Unit]" >>  %{buildroot}/%{_unitdir}/notify-push.service
@@ -47,7 +46,6 @@ echo "EnvironmentFile=%{_sysconfdir}/default/notify-push" >>  %{buildroot}/%{_un
 echo "ExecStart = %{_bindir}/notify_push \${NEXTCLOUD_DIR}/config/config.php" >>  %{buildroot}/%{_unitdir}/notify-push.service
 echo "# requires the push server to have been build with the systemd feature (enabled by default)" >>  %{buildroot}/%{_unitdir}/notify-push.service
 echo "Type=notify" >>  %{buildroot}/%{_unitdir}/notify-push.service
-echo "User=\${SERVER_USER}" >>  %{buildroot}/%{_unitdir}/notify-push.service
 echo "" >>  %{buildroot}/%{_unitdir}/notify-push.service
 echo "[Install]" >>  %{buildroot}/%{_unitdir}/notify-push.service
 echo "WantedBy = multi-user.target" >>  %{buildroot}/%{_unitdir}/notify-push.service
