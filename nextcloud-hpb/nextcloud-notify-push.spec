@@ -2,7 +2,7 @@
 Name:           nextcloud-notify-push
 Version:        0.7.0
 Release:        1%{?dist}
-Summary:        The standalone signaling server which can be used for Nextcloud Talk.
+Summary:        The notify backend server for Nextcloud Files.
 License:        AGPLv3
 Group:          Applications/Internet
 URL:            https://github.com/nextcloud/notify_push
@@ -12,9 +12,10 @@ BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  systemd
 BuildRequires:  glibc-devel
 BuildRequires:  rust
+BuildRequires:  cargo
 
 %description
-The standalone signaling server which can be used for Nextcloud Talk.
+The notify backend server for Nextcloud Files.
 
 %global debug_package %{nil}
 
