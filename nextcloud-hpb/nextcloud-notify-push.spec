@@ -1,7 +1,7 @@
 %define srcname notify_push
 Name:           nextcloud-notify-push
 Version:        0.7.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        The notify backend server for Nextcloud Files.
 License:        AGPLv3
 Group:          Applications/Internet
@@ -61,5 +61,8 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/default/notify-push
 
 %changelog
+* Thu Nov 7 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.7.0-2
+ - Fix deps
+
 * Thu Nov 7 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.7.0-1
  - First iteration
