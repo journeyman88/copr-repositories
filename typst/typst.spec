@@ -13,6 +13,7 @@ Source0:        https://github.com/typst/%{name}/archive/v%{version}.tar.gz#/%{n
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 BuildRequires:  rust
 BuildRequires:  cargo
+BuildRequires:  openssl-devel
 
 %description
 Typst is a new markup-based typesetting system that is designed to be as powerful as LaTeX while being much easier to learn and use.
