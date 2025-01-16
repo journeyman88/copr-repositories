@@ -1,6 +1,6 @@
 Name:           nats-server
-Version:        2.10.22
-Release:        4%{?dist}
+Version:        2.10.24
+Release:        1%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
 Group:          Applications/Internet
@@ -75,6 +75,9 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
+* Mon Dec 30 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.24-1
+ - Updated package to upstream
+
 * Tue Nov 5 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.10.22-4
  - Fixed systemd service
 

@@ -1,6 +1,6 @@
 Name:           janus-gateway
-Version:        1.2.4
-Release:        6%{?dist}
+Version:        1.3.0
+Release:        1%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -42,6 +42,9 @@ BuildRequires:  duktape-devel
 %if 0%{?fedora}
 %define has_la	0
 %endif
+
+%define shortapi 2
+%define longapi 2.0.5
 
 %description
 Janus is an open source, general purpose, WebRTC server designed and 
@@ -304,8 +307,8 @@ rm -rf %{buildroot}
 %define modfolder transports
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
-%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{shortapi}
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -317,7 +320,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -329,7 +332,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -341,7 +344,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -353,7 +356,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
@@ -366,7 +369,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -378,7 +381,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -390,7 +393,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -402,7 +405,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -414,7 +417,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -426,7 +429,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -438,7 +441,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -450,7 +453,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -462,7 +465,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -474,7 +477,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -486,7 +489,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -498,7 +501,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -510,7 +513,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -522,7 +525,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -534,7 +537,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -546,7 +549,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -558,7 +561,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -570,7 +573,7 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
@@ -582,12 +585,15 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/janus/janus.%{modtype}.%{modname}.jcfg
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so
 %attr(-, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2
-%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.2.0.4
+%attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.so.%{longapi}
 %if %has_la
 %attr(755, root, root) %{_libdir}/janus/%{modfolder}/libjanus_%{modname}.la
 %endif
 
 %changelog
+* Fri Dec 6 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.3.0-1
+ - Updated to upstream
+
 * Thu Nov 7 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.2.4-6
  - Fixed service
 
