@@ -22,7 +22,7 @@ Typst is a new markup-based typesetting system that is designed to be as powerfu
 
 %build
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-install
-rustup-install --profile default --default-toolchain stable -y
+sh rustup-install --profile default --default-toolchain stable -y
 cargo build --release
 
 %install
