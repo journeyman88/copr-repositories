@@ -23,6 +23,7 @@ Typst is a new markup-based typesetting system that is designed to be as powerfu
 %build
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-install
 sh rustup-install --profile default --default-toolchain stable -y
+. "$HOME/.cargo/env"
 cargo build --release
 
 %install
