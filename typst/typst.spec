@@ -11,7 +11,7 @@ License:        Apache-2.0
 Url:            https://github.com/typst/typst
 Source0:        https://github.com/typst/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}
-BuildRequires:  rustup
+BuildRequires:  wget
 BuildRequires:  openssl-devel
 
 %description
@@ -21,7 +21,8 @@ Typst is a new markup-based typesetting system that is designed to be as powerfu
 %autosetup -n %{name}-%{version}
 
 %build
-rustup-init
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-install
+rustup-install --profile default --default-toolchain stable -y
 cargo build --release
 
 %install
