@@ -5,7 +5,7 @@
 
 Name:           typst
 Summary:        A new markup-based typesetting system that is powerful and easy to learn.
-Version:        0.12.0
+Version:        0.13.0
 Release:        1%{?dist}
 License:        Apache-2.0
 Url:            https://github.com/typst/typst
@@ -44,5 +44,8 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_defaultdocdir}/typst
 
 %changelog
+* Tue Feb 25 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-1
+ - Updated package to upstream
+
 * Thu Jan 16 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.12.0-1
  - Initial package.
