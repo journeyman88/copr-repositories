@@ -12,6 +12,7 @@ Url:            https://github.com/typst/typst
 Source0:        https://github.com/typst/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 BuildRequires:  wget
+BuildRequires:  gcc
 BuildRequires:  openssl-devel
 
 %description
