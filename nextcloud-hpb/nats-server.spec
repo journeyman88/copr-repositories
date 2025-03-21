@@ -1,6 +1,6 @@
 Name:           nats-server
 Version:        2.11.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
 Group:          Applications/Internet
@@ -23,6 +23,8 @@ NATS is a connective technology that powers modern distributed systems. A connec
 %autosetup -n %{name}-%{version}
 
 %build
+export GOTOOLCHAIN=auto
+export GOSUMDB=sum.golang.org
 go build -ldflags="-linkmode=external"
 
 %install
@@ -75,6 +77,9 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
+* Fri Mar 21 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.11.0-2
+ - Switch to toolchain based builds
+
 * Fri Mar 21 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.11.0-1
  - Updated package to upstream
 
