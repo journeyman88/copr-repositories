@@ -5,8 +5,8 @@
 
 Name:           typst
 Summary:        A new markup-based typesetting system that is powerful and easy to learn.
-Version:        0.13.0
-Release:        2%{?dist}
+Version:        0.13.1
+Release:        1%{?dist}
 License:        Apache-2.0
 Url:            https://github.com/typst/typst
 Source0:        https://github.com/typst/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
@@ -47,6 +47,9 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_defaultdocdir}/typst
 
 %changelog
+* Fri Mar 21 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.1-1
+ - Updated package to upstream
+
 * Tue Feb 25 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.13.0-2
  - Switching to rustup to manage rust allowing older distro builds.
 
