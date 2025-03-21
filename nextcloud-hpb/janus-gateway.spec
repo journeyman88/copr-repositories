@@ -44,7 +44,7 @@ BuildRequires:  duktape-devel
 %endif
 
 %define shortapi 2
-%define longapi 2.0.5
+%define longapi 2.0.6
 
 %description
 Janus is an open source, general purpose, WebRTC server designed and 
