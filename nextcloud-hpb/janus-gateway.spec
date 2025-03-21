@@ -1,5 +1,5 @@
 Name:           janus-gateway
-Version:        1.3.0
+Version:        1.3.1
 Release:        1%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
@@ -591,6 +591,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Fri Mar 21 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.3.1-1
+ - Updated to upstream
+
 * Fri Dec 6 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.3.0-1
  - Updated to upstream
 
