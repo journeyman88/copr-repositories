@@ -1,6 +1,6 @@
 Name:           hiawatha
 Version:        11.7
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -9,7 +9,7 @@ Source0:        https://hiawatha.leisink.net/files/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
-BuildRequires:  gcc
+BuildRequires:  clang
 BuildRequires:  glibc-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
@@ -126,6 +126,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Mon Mar 31 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.7-2
+ - Switching to clang to try fix compliation issues.
+
 * Mon Mar 31 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.7-1
  - Upgraded to upstream 11.7
 
