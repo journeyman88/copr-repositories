@@ -1,6 +1,6 @@
 Name:           nextcloud-spreed-signaling
-Version:        2.0.2
-Release:        2%{?dist}
+Version:        2.0.3
+Release:        1%{?dist}
 Summary:        The standalone signaling server which can be used for Nextcloud Talk.
 License:        AGPLv3
 Group:          Applications/Internet
@@ -88,6 +88,9 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
 
 %changelog
+* Mon May 19 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.3-1
+ - Updated package to upstream
+
 * Tue Mar 04 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.0.2-2
  - Updated build to report version
 
