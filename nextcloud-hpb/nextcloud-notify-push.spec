@@ -1,6 +1,6 @@
 %define srcname notify_push
 Name:           nextcloud-notify-push
-Version:        1.0.0
+Version:        1.1.0
 Release:        1%{?dist}
 Summary:        The notify backend server for Nextcloud Files.
 License:        AGPLv3
@@ -11,8 +11,10 @@ Source0:        https://github.com/nextcloud/%{srcname}/archive/v%{version}.tar.
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  systemd
 BuildRequires:  glibc-devel
-BuildRequires:  rust
-BuildRequires:  cargo
+BuildRequires:  make
+BuildRequires:  openssl-devel
+BuildRequires:  wget
+BuildRequires:  gcc
 
 %description
 The notify backend server for Nextcloud Files.
@@ -23,6 +25,10 @@ The notify backend server for Nextcloud Files.
 %autosetup -n %{srcname}-%{version}
 
 %build
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs > rustup-install
+sh rustup-install --profile default --default-toolchain stable -y
+. "$HOME/.cargo/env"
+cargo update
 cargo build --release
 
 %install
@@ -61,9 +67,12 @@ rm -rf %{buildroot}
 %config(noreplace) %{_sysconfdir}/default/notify-push
 
 %changelog
+* Mon May 19 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.1.0-1
+ - Updated package to upstream
+
 * Thu Jan 23 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.0.0-1
  - Updated package to upstream
- 
+
 * Thu Nov 7 2024 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 0.7.0-2
  - Fix deps
 
