@@ -36,8 +36,10 @@ BuildRequires:  libogg-devel
 BuildRequires:  lua-devel
 BuildRequires:  duktape-devel
 
-%if 0%{?rhel}
+%if 0%{?rhel} >= 7
+%if 0%{?rhel} <= 9
 %define has_la	1
+%endif
 %if 0%{?rhel} >= 10
 %define has_la	0
 %endif
