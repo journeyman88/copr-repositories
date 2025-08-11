@@ -38,6 +38,9 @@ BuildRequires:  duktape-devel
 
 %if 0%{?rhel}
 %define has_la	1
+%if 0%{?rhel} >= 10
+%define has_la	0
+%endif
 %endif
 %if 0%{?fedora}
 %define has_la	0
