@@ -1,6 +1,6 @@
 Name:           hiawatha
-Version:        11.7
-Release:        2%{?dist}
+Version:        11.8
+Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -9,7 +9,8 @@ Source0:        https://hiawatha.leisink.net/files/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
-BuildRequires:  clang
+BuildRequires:  gcc
+BuildRequires:  g++
 BuildRequires:  glibc-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
@@ -43,7 +44,7 @@ an integration system for Let's Encrypt.
 %build
 mkdir bld
 cd bld
-CFLAGS="${CFLAGS:-%optflags}" ; export CFLAGS
+CFLAGS="${CFLAGS:-Wno-error=unused-command-line-argument:-%optflags}" ; export CFLAGS
 CXXFLAGS="${CXXFLAGS:-%optflags}" ; export CXXFLAGS
 FFLAGS="${FFLAGS:-%optflags}" ; export FFLAGS
 %bldcmd -DCMAKE_INSTALL_PREFIX="" -DCMAKE_INSTALL_LIBDIR=%{_libdir} \
@@ -126,6 +127,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Mon Nov 03 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.8-1
+ - Upgraded to upstream 11.8
+ 
 * Mon Mar 31 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.7-2
  - Switching to clang to try fix compliation issues.
 
