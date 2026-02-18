@@ -1,5 +1,5 @@
 Name:           janus-gateway
-Version:        1.3.3
+Version:        1.4.0
 Release:        1%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
@@ -35,6 +35,10 @@ BuildRequires:  opus-devel
 BuildRequires:  libogg-devel
 BuildRequires:  lua-devel
 BuildRequires:  duktape-devel
+BuildRequires:  nodejs-npm
+BuildRequires:  libavutil-free-devel
+BuildRequires:  libavcodec-free-devel
+BuildRequires:  libavformat-free-devel
 
 %if 0%{?rhel} >= 7
 %if 0%{?rhel} <= 9
@@ -49,7 +53,7 @@ BuildRequires:  duktape-devel
 %endif
 
 %define shortapi 2
-%define longapi 2.0.8
+%define longapi 2.0.9
 
 %description
 Janus is an open source, general purpose, WebRTC server designed and 
@@ -256,12 +260,20 @@ Requires:       %{name} = %{version}-%{release}
 %description    logger-json
 This package contains the JSON external logger for Janus WebRTC server.
 
+%package        post-processing
+Summary:        Post-processing utility for the Janus WebRTC server
+Group:          Applications/Internet
+Requires:       %{name} = %{version}-%{release}
+
+%description    post-processing
+This package contains the post-processing utility for Janus WebRTC server.
+
 %prep
 %autosetup -n %{name}-%{version}
 sh autogen.sh
 
 %build
-%configure --enable-plugin-lua --enable-plugin-duktape --enable-docs --enable-json-logger
+%configure --enable-plugin-lua --enable-plugin-duktape --enable-docs --enable-json-logger --enable-javascript-es-module -enable-javascript-umd-module  --enable-javascript-iife-module --enable-javascript-common-js-module --enable-post-processing
 %__make %{?_smp_mflags}
 
 %install
@@ -305,6 +317,13 @@ rm -rf %{buildroot}
 
 %files devel
 %attr(-, root, root) %{_includedir}/janus/
+%attr(644, root, root) %{_libdir}/pkgconfig/janus-gateway.pc
+
+%files post-processing
+%attr(755, root, root) %{_bindir}/janus-pp-rec
+%attr(755, root, root) %{_bindir}/mjr2pcap
+%attr(644, root, root) %{_mandir}/man1/janus-pp-rec.1.gz
+%attr(644, root, root) %{_mandir}/man1/mjr2pcap.1.gz
 
 %files transport-http
 %define modname http
@@ -596,6 +615,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Wed Feb 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.4.0-1
+ - Updated to upstream
+
 * Mon Nov 03 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.3.3-1
  - Updated to upstream
 
