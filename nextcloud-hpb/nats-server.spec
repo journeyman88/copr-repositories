@@ -1,5 +1,5 @@
 Name:           nats-server
-Version:        2.12.4
+Version:        2.12.5
 Release:        1%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
@@ -60,6 +60,9 @@ echo "LimitNOFILE=800000" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "[Install]" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "WantedBy=multi-user.target" >> %{buildroot}/%{_unitdir}/nats-server.service
+echo "#Type Name   ID   GECOS              Home directory                Shell" > %{buildroot}/%{_sysusersdir}/nats.conf
+echo "g     nats   -                                                          " >> %{buildroot}/%{_sysusersdir}/nats.conf
+echo "u     nats   -    \"NATS server\"    %{_localstatedir}/nats-server /sbin/nologin"  >> %{buildroot}/%{_sysusersdir}/nats.conf
 
 %pre
 getent group nats >/dev/null || groupadd -r nats
@@ -77,6 +80,9 @@ rm -rf %{buildroot}
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
 
 %changelog
+* Wed Mar 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.12.5-1
+ - Updated package to upstream & tentative fix for sysuser.d
+
 * Wed Feb 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.12.4-1
  - Updated package to upstream
 
