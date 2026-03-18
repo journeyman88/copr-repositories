@@ -60,6 +60,7 @@ echo "LimitNOFILE=800000" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "[Install]" >> %{buildroot}/%{_unitdir}/nats-server.service
 echo "WantedBy=multi-user.target" >> %{buildroot}/%{_unitdir}/nats-server.service
+mkdir -p %{buildroot}/%{_sysusersdir}
 echo "#Type Name   ID   GECOS              Home directory                Shell" > %{buildroot}/%{_sysusersdir}/nats.conf
 echo "g     nats   -                                                          " >> %{buildroot}/%{_sysusersdir}/nats.conf
 echo "u     nats   -    \"NATS server\"    %{_localstatedir}/nats-server /sbin/nologin"  >> %{buildroot}/%{_sysusersdir}/nats.conf
