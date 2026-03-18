@@ -79,6 +79,7 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_unitdir}/nats-server.service
 %config(noreplace) %{_sysconfdir}/nats-server.conf
 %dir %attr(644, nats, nats) %{_localstatedir}/nats-server
+%attr(644, root, root) %{_sysusersdir}/nats.conf
 
 %changelog
 * Wed Mar 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.12.5-1
