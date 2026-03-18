@@ -1,6 +1,6 @@
 Name:           hiawatha
-Version:        11.8
-Release:        2%{?dist}
+Version:        12.0
+Release:        1%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -71,6 +71,10 @@ cd ..
 install -m644 extra/debian/hiawatha.service %{buildroot}%{_unitdir}/hiawatha.service
 rm -rf %{buildroot}/cmake
 rm -rf %{buildroot}/include
+mkdir -p %{buildroot}/%{_sysusersdir}
+echo "#Type Name       ID   GECOS              Home directory                Shell" > %{buildroot}/%{_sysusersdir}/hiawatha.conf
+echo "g     hiawatha   -                                                          " >> %{buildroot}/%{_sysusersdir}/hiawatha.conf
+echo "u     hiawatha   -    \"Hiawatha Web server\"    %{_localstatedir}/www/hiawatha/ /sbin/nologin"  >> %{buildroot}/%{_sysusersdir}/hiawatha.conf
 
 # Docs
 mkdir -p %{buildroot}%{_defaultdocdir}/hiawatha
@@ -116,9 +120,10 @@ rm -rf %{buildroot}
 %attr(-, root, root) %{_localstatedir}/log/hiawatha/
 %attr(-, root, root) %{_localstatedir}/www/hiawatha/
 %attr(-, root, root) %{_defaultdocdir}/hiawatha/
-%attr(-, root, root) %{_unitdir}/
+%attr(644, root, root) %{_unitdir}/hiawatha.service
 %config(noreplace) %{_sysconfdir}/hiawatha
 %config(noreplace) %{_sysconfdir}/logrotate.d/hiawatha
+%attr(644, root, root) %{_sysusersdir}/hiawatha.conf
 %exclude %{_libdir}/hiawatha
 
 %files extra
@@ -127,6 +132,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Wed Mar 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 12.0-1
+ - Upgraded to upstream 12.0
+
 * Mon Nov 03 2025 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 11.8-2
  - Test changing the cflags
  
