@@ -1,5 +1,5 @@
 Name:           nextcloud-spreed-signaling
-Version:        2.1.0
+Version:        2.1.1
 Release:        1%{?dist}
 Summary:        The standalone signaling server which can be used for Nextcloud Talk.
 License:        AGPLv3
@@ -68,6 +68,10 @@ echo "Restart=on-failure" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "[Install]" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
 echo "WantedBy=multi-user.target" >>  %{buildroot}/%{_unitdir}/signaling-proxy.service
+mkdir -p %{buildroot}/%{_sysusersdir}
+echo "#Type Name   ID   GECOS              Home directory                Shell" > %{buildroot}/%{_sysusersdir}/signaling.conf
+echo "g     signaling   -                                                          " >> %{buildroot}/%{_sysusersdir}/signaling.conf
+echo "u     signaling   -    \"Nextcloud Talk signaling server\"    %{_sysconfdir}/signaling /sbin/nologin"  >> %{buildroot}/%{_sysusersdir}/signaling.conf
 
 %pre
 getent group signaling >/dev/null || groupadd -r signaling
@@ -86,8 +90,12 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_unitdir}/signaling-proxy.service
 %config(noreplace) %{_sysconfdir}/signaling/server.conf
 %config(noreplace) %{_sysconfdir}/signaling/proxy.conf
+%attr(644, root, root) %{_sysusersdir}/signaling.conf
 
 %changelog
+* Wed Mar 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.1.1-1
+ - Updated package to upstream
+
 * Wed Feb 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.1.0-1
  - Updated package to upstream
 
