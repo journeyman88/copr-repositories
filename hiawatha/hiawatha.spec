@@ -5,7 +5,7 @@ Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
 URL:            https://hiawatha.leisink.net/
-Source0:        https://hiawatha.leisink.net/files/%{name}-%{version}.tar.gz
+Source0:        https://hiawatha.leisink.net/files/download/%{name}-%{version}.tar.gz
 
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
