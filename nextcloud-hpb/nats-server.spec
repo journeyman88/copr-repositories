@@ -1,5 +1,5 @@
 Name:           nats-server
-Version:        2.12.5
+Version:        2.12.7
 Release:        1%{?dist}
 Summary:        High-Performance server for NATS.io.
 License:        Apache-2.0
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_sysusersdir}/nats.conf
 
 %changelog
+* Wed Apr 15 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.12.7-1
+ - Updated package to upstream
+
 * Wed Mar 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 2.12.5-1
  - Updated package to upstream & tentative fix for sysuser.d
 
