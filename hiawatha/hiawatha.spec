@@ -109,13 +109,11 @@ exit 0
 rm -rf %{buildroot}
 
 %files
-%attr(755, root, root) %{_bindir}/ssi-cgi
 %attr(755, root, root) %{_sbindir}/cgi-wrapper
 %attr(755, root, root) %{_sbindir}/hiawatha
 %attr(755, root, root) %{_sbindir}/wigwam
 %attr(644, root, root) %{_mandir}/man1/cgi-wrapper.1.gz
 %attr(644, root, root) %{_mandir}/man1/hiawatha.1.gz
-%attr(644, root, root) %{_mandir}/man1/ssi-cgi.1.gz
 %attr(644, root, root) %{_mandir}/man1/wigwam.1.gz
 %attr(-, root, root) %{_localstatedir}/log/hiawatha/
 %attr(-, root, root) %{_localstatedir}/www/hiawatha/
