@@ -1,6 +1,6 @@
 Name:           hiawatha
 Version:        12.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        An advanced and secure web-server for Unix
 License:        GPLv2
 Group:          Applications/Internet
@@ -10,7 +10,7 @@ Source0:        https://hiawatha.leisink.net/files/download/%{name}-%{version}.t
 BuildRoot:      %{_topdir}/BUILDROOT/
 BuildRequires:  make
 BuildRequires:  gcc
-BuildRequires:  g++
+BuildRequires:  gcc-c++
 BuildRequires:  glibc-devel
 BuildRequires:  libxml2-devel
 BuildRequires:  libxslt-devel
@@ -132,6 +132,9 @@ rm -rf %{buildroot}
 %attr(644, root, root) %{_mandir}/man1/lefh.1.gz
 
 %changelog
+* Mon May 25 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 12.2-2
+ - Fix the build script
+
 * Mon May 25 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 12.2-1
  - Upgraded to upstream 12.2
 
