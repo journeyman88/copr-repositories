@@ -1,6 +1,6 @@
 Name:           janus-gateway
-Version:        1.4.0
-Release:        2%{?dist}
+Version:        1.4.1
+Release:        1%{?dist}
 Summary:        Janus WebRTC Server
 License:        GPLv3
 Group:          Applications/Internet
@@ -57,7 +57,7 @@ BuildRequires:  libavformat-free-devel
 %endif
 
 %define shortapi 2
-%define longapi 2.0.9
+%define longapi 2.0.10
 
 %description
 Janus is an open source, general purpose, WebRTC server designed and 
@@ -632,6 +632,9 @@ rm -rf %{buildroot}
 %endif
 
 %changelog
+* Mon May 25 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.4.1-1
+ - Updated to upstream
+
 * Wed Feb 18 2026 Marco Bignami <m.bignami@unknown-domain.no-ip.net> 1.4.0-2
  - Added conditional blocks for builds on different EL targets
 
